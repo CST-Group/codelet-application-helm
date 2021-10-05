@@ -6,5 +6,6 @@ spec:
   selector:
     app: {{ .Release.Name }}-codelet-application-service
   ports:
-    - port: 80
+    - port: 8080
       targetPort: 8080
+      nodePort: 8080

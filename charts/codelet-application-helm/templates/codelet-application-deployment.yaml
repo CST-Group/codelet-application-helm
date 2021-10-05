@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }} - codelet-application
+        app: {{ .Release.Name }}-codelet-application
     spec:
       containers:
         - name: {{ .Values.containerName }}-codelet-application
