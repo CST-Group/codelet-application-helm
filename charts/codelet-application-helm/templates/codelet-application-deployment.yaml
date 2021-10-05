@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{. Release.Name }}-codelet-application
+  name: {{ .Release.Name }}-codelet-application
 spec:
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: codelet-application
-    templates:
-      metadata:
-        labels:
-          app: codelet-application
-      spec:
-        containers:
-          - name: {{. Value.containerName }}-codelet-application
-            image: {{. Value.image }}
-            ports:
-            - containersPort: 80
-        env:
-          {{- range .Values.env }}
-        - name: {{ .name }}
-          value: {{ .value }}
-        {{- end }}   
+      app: {{ .Release.Name }}-codelet-application
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }} - codelet-application
+    spec:
+      containers:
+        - name: {{ .Values.containerName }}-codelet-application
+          image: {{ .Values.image }}
+          ports:
+          - containerPort: 8080
+      env:
+        {{- range .Values.env }}
+      - name: {{ .name }}
+        value: {{ .value }}
+      {{- end -}}   
