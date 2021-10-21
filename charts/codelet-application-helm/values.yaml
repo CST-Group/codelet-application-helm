@@ -1,28 +1,9 @@
 replicaCount: 1
-name: test-pod
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-serviceAccount:
-  create: true
-  annotation: {}
-  name:
-podSecurityContext: {}
-securityContext: {}
-service:
-  type: ClusterIP
-  port: 80
-ingress:
-  enabled: false
-  annotations: {}
-  hosts:
-    - hosts: chart-example.local
-      paths: []
-  tls: []
-resources: {}
-nodeSelector: {}
-tolerations: []
-affinity: {}
+
+containerName: sensory-codelet-pod
+
+image: nginx
+
+env:
+- name: TEST
+  value: 1122
