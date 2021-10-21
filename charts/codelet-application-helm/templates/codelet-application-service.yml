@@ -7,7 +7,7 @@ spec:
   selector:
     app: {{ .Release.Name }}-codelet-application-service
   ports:
-    - port: {{ .Values.container.containerPort }}
-      targetPort: {{ .Values.service.targetPort }}
-      nodePort: {{ .Values.service.nodePort }}
+    - name: http
+      port: {{ .Values.container.containerPort }}
+      targetPort: deployment-port
       protocol: TCP
