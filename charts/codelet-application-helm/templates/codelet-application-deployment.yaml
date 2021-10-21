@@ -20,4 +20,4 @@ spec:
       env:
         {{- if .Values.env }}
         {{- toYaml .Values.env | indent 12 }}
-        {{- end }}  
+        {{- end }}
