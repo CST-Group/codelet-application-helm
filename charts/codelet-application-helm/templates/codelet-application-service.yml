@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-codelet-application-service
 spec:
+  type: {{ .Values.service.type }}
   selector:
     app: {{ .Release.Name }}-codelet-application-service
   ports:
     - port: {{ .Values.container.containerPort }}
-      targetPort: {{ .Values.container.containerPort }}
-      nodePort: {{ .Values.container.containerPort }}
+      targetPort: {{ .Values.service.targetPort }}
+      nodePort: {{ .Values.service.nodePort }}
+      protocol: TCP
