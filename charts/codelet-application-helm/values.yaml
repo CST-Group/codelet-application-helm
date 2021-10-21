@@ -1,9 +1,10 @@
 replicaCount: 1
-
-containerName: sensory-codelet-pod
-
-image: nginx
-
-env:
-- name: TEST
-  value: 1122
+container:
+  containerName: sensory
+  containerPort: 8081
+  image: 
+    name: nginx
+    pullPolicy: Always
+  env:
+   TEST1: 1111
+   TEST2: 2222

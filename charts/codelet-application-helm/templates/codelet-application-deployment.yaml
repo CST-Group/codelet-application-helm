@@ -13,11 +13,14 @@ spec:
         app: {{ .Release.Name }}-codelet-application
     spec:
       containers:
-        - name: {{ .Values.containerName }}-codelet-application
-          image: {{ .Values.image }}
+        - name: {{ .Values.container.containerName }}-codelet-application
+          image: {{ .Values.container.image.name }}
+          imagePullPolicy: {{ .Values.container.image.pullPolicy }}
           ports:
-          - containerPort: 8080
-      env:
-        {{- if .Values.env }}
-        {{- toYaml .Values.env | indent 12 }}
-        {{- end }}
+          - containerPort: {{ .Values.container.containerPort }}
+          env:          
+            {{- range $key, $val := .Values.container.env }}
+          - name: {{ $key }}
+            value: {{ $val | quote }}
+         {{- end }}
+

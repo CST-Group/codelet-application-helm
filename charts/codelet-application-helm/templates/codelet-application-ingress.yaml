@@ -12,5 +12,5 @@ spec:
           service:
             name: {{ .Release.Name }}-codelet-application-service
             port:
-              number: 8080
+              number: {{ .Values.container.containerPort }}
 
