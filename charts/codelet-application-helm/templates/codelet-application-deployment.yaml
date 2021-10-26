@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-codelet-application
+  name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-codelet-application
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-codelet-application
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Values.container.containerName }}-codelet-application
+        - name: {{ .Values.container.containerName }}
           image: {{ .Values.container.image.name }}
           imagePullPolicy: {{ .Values.container.image.pullPolicy }}
           ports:
