@@ -13,6 +13,16 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-10-26T01:32:00.893585322Z"
+    description: A Helm chart for codelet application to be installed in the Kubernetes cluster.
+    digest: 0955bf33f69b9048a5f2cec36c1422322c1d0d6c5ac77bf4c83ef87acdf1d6aa
+    name: codelet-application-helm
+    type: application
+    urls:
+    - https://github.com/CST-Group/codelet-application-helm/releases/download/codelet-application-helm-0.0.4/codelet-application-helm-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-10-21T02:28:46.74854793Z"
     description: A Helm chart for codelet application to be installed in the Kubernetes cluster.
     digest: f56144d7d19247810ad47cc0710fe21cb00ba0674eda4a8cc3bf5b11bf4dd5fb
