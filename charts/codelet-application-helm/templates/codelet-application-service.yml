@@ -7,7 +7,8 @@ spec:
   selector:
     app: {{ .Release.Name }}-service
   ports:
-    - name: http
-      port: {{ .Values.container.containerPort }}
-      targetPort: deployment-port
-      protocol: TCP
+    {{- range $key, $val := .Values.service.targetPorts }}
+  - name: {{ $key }}
+    containerPort: {{ $val | quote }}
+    protocol: TCP
+ {{- end }}
