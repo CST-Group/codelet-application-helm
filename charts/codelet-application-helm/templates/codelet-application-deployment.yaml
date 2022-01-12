@@ -17,10 +17,8 @@ spec:
           image: {{ .Values.container.image.name }}
           imagePullPolicy: {{ .Values.container.image.pullPolicy }}
           ports:
-            {{- range $key, $val := .Values.container.ports }}
-          - name: {{ $key }}
-            containerPort: {{ $val | quote }}
-         {{- end }}
+          - name: deployment-port
+            containerPort: {{ .Values.container.containerPort }}
           env:          
             {{- range $key, $val := .Values.container.env }}
           - name: {{ $key }}
