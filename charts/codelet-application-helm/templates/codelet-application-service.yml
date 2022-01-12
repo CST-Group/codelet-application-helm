@@ -9,7 +9,7 @@ spec:
   ports:
     {{- range $key, $val := .Values.service.targetPorts }}
   - name: {{ $key }}
-    port: {{ $val | quote }}
-    targetPort: {{ $val | quote }}
+    port: {{ $val }}
+    targetPort: {{ $val }}
     protocol: TCP
  {{- end }}
