@@ -3,12 +3,9 @@ kind: Service
 metadata:
   name: {{ .Service.name }}
 spec:
-  {{ if .Values.service.type }}
   type: {{ .Values.service.type }}
-  {{ end }}
-  clusterIP: {{ .Values.service.clusterIP }}
   selector:
-    app: {{ .Release.Name }}-service
+    app: {{ .Service.name }}
   ports:
     {{- range $key, $val := .Values.service.targetPorts }}
   - name: {{ $key }}
