@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-service
 spec:
   type: {{ .Values.service.type }}
+  clusterIP: {{ .Values.service.clusterIP }}
   selector:
     app: {{ .Release.Name }}-service
   ports:
