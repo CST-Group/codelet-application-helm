@@ -3,7 +3,9 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-service
 spec:
+  {{ if .Values.service.type }}
   type: {{ .Values.service.type }}
+  {{ end }}
   clusterIP: {{ .Values.service.clusterIP }}
   selector:
     app: {{ .Release.Name }}-service
