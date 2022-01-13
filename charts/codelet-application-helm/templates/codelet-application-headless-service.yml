@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Service.name }}-headless
+  name: {{ .Values.service.name }}-headless
 spec:
   clusterIP: {{ .Values.service.clusterIP }}
   selector:
-    app: {{ .Service.name }}
+    app: {{ .Values.service.name }}
   ports:
     {{- range $key, $val := .Values.service.targetPorts }}
   - name: {{ $key }}
